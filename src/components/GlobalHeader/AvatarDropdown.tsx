@@ -1,10 +1,9 @@
-import { Avatar, Icon, Menu, Spin } from 'antd';
-import { ClickParam } from 'antd/es/menu';
-import { FormattedMessage } from 'umi-plugin-react/locale';
 import React from 'react';
 import { connect } from 'dva';
 import router from 'umi/router';
-
+import { Avatar, Icon, Menu, Spin } from 'antd';
+import { ClickParam } from 'antd/es/menu';
+import { FormattedMessage } from 'umi-plugin-react/locale';
 import { ConnectProps, ConnectState } from '@/models/connect';
 import { CurrentUser } from '@/models/user';
 import HeaderDropdown from '../HeaderDropdown';
@@ -14,11 +13,9 @@ export interface GlobalHeaderRightProps extends ConnectProps {
   currentUser?: CurrentUser;
   menu?: boolean;
 }
-
 class AvatarDropdown extends React.Component<GlobalHeaderRightProps> {
   onMenuClick = (event: ClickParam) => {
     const { key } = event;
-
     if (key === 'logout') {
       const { dispatch } = this.props;
       if (dispatch) {
@@ -33,7 +30,6 @@ class AvatarDropdown extends React.Component<GlobalHeaderRightProps> {
 
   render(): React.ReactNode {
     const { currentUser = { avatar: '', name: '' }, menu } = this.props;
-
     const menuHeaderDropdown = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
         {menu && (
@@ -49,7 +45,6 @@ class AvatarDropdown extends React.Component<GlobalHeaderRightProps> {
           </Menu.Item>
         )}
         {menu && <Menu.Divider />}
-
         <Menu.Item key="logout">
           <Icon type="logout" />
           <FormattedMessage id="menu.account.logout" defaultMessage="logout" />
