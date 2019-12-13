@@ -1,6 +1,5 @@
-import { Button, message, notification } from 'antd';
-
 import React from 'react';
+import { Button, message, notification } from 'antd';
 import { formatMessage } from 'umi-plugin-react/locale';
 import defaultSettings from '../config/defaultSettings';
 
